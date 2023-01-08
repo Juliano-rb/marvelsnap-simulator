@@ -1,5 +1,5 @@
-import { Location } from "../domain/Location";
-import ILocation from "../domain/interfaces/ILocation";
+import { Location } from "../model/Location";
+import ILocation from "../model/interfaces/ILocation";
 
 export class LocationBuilder {
   private readonly _location: ILocation;

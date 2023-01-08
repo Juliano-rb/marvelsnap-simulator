@@ -1,8 +1,8 @@
-import { Board } from "../domain/Board";
-import IBoard from "../domain/interfaces/IBoard";
+import { Board } from "../model/Board";
+import IBoard from "../model/interfaces/IBoard";
 import { PlayerBuilder } from "./PlayerBuilder";
 import { LocationBuilder } from "./LocationBuilder";
-import IPlayer from "../domain/interfaces/IPlayer";
+import IPlayer from "../model/interfaces/IPlayer";
 
 export class BoardBuilder {
   private readonly _board: IBoard;

@@ -13,7 +13,6 @@ import { PlayerBuilder } from "../builders/PlayerBuilder";
 
 describe("Board", () => {
   test.todo("should instantiate board with passed atributes");
-  test.todo("should play a card in a location when call playCard");
 
   it("should set turnOf to first player according to random number", () => {
     const selectPlayerRandomIndex = 0;
@@ -24,4 +23,12 @@ describe("Board", () => {
 
     expect(board.turnOf).toEqual(players[selectPlayerRandomIndex]);
   });
+
+  it.todo(
+    "should play a card in a location when call create playCardAction",
+    () => {
+      // const board = boardBuilder.build();
+      // board.executeAction();
+    }
+  );
 });
