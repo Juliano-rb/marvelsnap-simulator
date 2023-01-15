@@ -1,10 +1,10 @@
-import IActionTrigger from "./IActionTrigger"
+import ITrigger from "./ITrigger";
 
 export default interface ICard {
-    name: string
-    description: string
-    cost: number
-    power: number
+  name: string;
+  description: string;
+  cost: number;
+  power: number;
 
-    actions: IActionTrigger[]
+  actionTriggers: ITrigger[];
 }

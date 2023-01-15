@@ -14,14 +14,13 @@ export class Board implements IBoard {
 
     this.turnOf = this.getInitialPlayer();
   }
+  playCard(player: IPlayer, board: IBoard): void {
+    throw new Error("Method not implemented.");
+  }
 
   private getInitialPlayer() {
     const randomPlayerIndex = Math.floor(Math.random() * this.players.length);
 
     return this.players[randomPlayerIndex];
-  }
-
-  executeAction(action: IAction): void {
-    throw new Error("Method not implemented.");
   }
 }

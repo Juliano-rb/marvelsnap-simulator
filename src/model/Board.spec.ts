@@ -27,8 +27,7 @@ describe("Board", () => {
   it.todo(
     "should play a card in a location when call create playCardAction",
     () => {
-      // const board = boardBuilder.build();
-      // board.executeAction();
+      const board = new BoardBuilder().build();
     }
   );
 });
