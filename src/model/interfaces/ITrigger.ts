@@ -1,17 +1,19 @@
 import IAction from "./IAction";
-import { IBaseCondition } from "./IBaseCondition";
+import IBaseCondition from "./IBaseCondition";
 import IBoard from "./IBoard";
-
-export default interface ITrigger {
-  baseCondition?: IBaseCondition;
-  action: IAction;
-  parameters: any;
-
-  check(board: IBoard): boolean;
-}
+import { Dictionary } from "./IDictionary";
 
 /**
  * Trigger
+ *  action: PlaceCard, Destroy, ...
  *  condicao base: revelar, destruir, turno acabar, fim da partida
- *  parametros: lista
+ *  parametros: dicionario
  */
+
+export default interface ITrigger {
+  action: IAction;
+  parameters: Dictionary;
+  baseCondition?: IBaseCondition;
+
+  check(board: IBoard): boolean;
+}

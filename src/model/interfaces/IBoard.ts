@@ -1,3 +1,4 @@
+import ICard from "./ICard";
 import ILocation from "./ILocation";
 import IPlayer from "./IPlayer";
 
@@ -6,5 +7,5 @@ export default interface IBoard {
   turnOf: IPlayer;
   locations: ILocation[];
 
-  playCard(player: IPlayer, board: IBoard): void;
+  playCard(card: ICard, player: IPlayer, location: ILocation): void;
 }
