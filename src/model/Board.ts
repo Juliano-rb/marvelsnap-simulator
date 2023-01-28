@@ -1,19 +1,16 @@
 import { PlaceCardAction } from "./Action/PlaceCard";
-import { EventDispatcher } from "./IEventDispatcher";
+import { EventDispatcher } from "./EventDispatcher";
 import IBoard from "./interfaces/IBoard";
 import ICard from "./interfaces/ICard";
-import IEventDispatcher from "./interfaces/IEventDispatcher";
-import ILocation from "./interfaces/ILocation";
 import IPlayer from "./interfaces/IPlayer";
-import { Trigger } from "./Trigger";
 
 export class Board implements IBoard {
   players: IPlayer[];
   turnOf: IPlayer;
-  locations: ILocation[];
-  eventDispatcher: IEventDispatcher;
+  locations: Location[];
+  eventDispatcher: EventDispatcher;
 
-  constructor(players: IPlayer[], locations: ILocation[]) {
+  constructor(players: IPlayer[], locations: Location[]) {
     this.players = players;
     this.locations = locations;
     this.eventDispatcher = new EventDispatcher(this);
@@ -26,15 +23,13 @@ export class Board implements IBoard {
     return this.players[randomPlayerIndex];
   }
 
-  playCard(card: ICard, player: IPlayer, location: ILocation): void {
+  playCard(card: ICard, player: IPlayer, location: Location): void {
     const locationIndex = this.locations.indexOf(location);
     const placeCardAction = new PlaceCardAction(player, {
       card,
       locationIndex,
     });
 
-    const trigger = new Trigger(placeCardAction, {}, undefined);
-
-    this.eventDispatcher.registerTrigger(trigger);
+    this.eventDispatcher.executeAction(placeCardAction);
   }
 }

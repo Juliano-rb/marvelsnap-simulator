@@ -1,23 +1,17 @@
-import IAction from "../interfaces/IAction";
 import IBoard from "../interfaces/IBoard";
 import ICard from "../interfaces/ICard";
 import { Dictionary } from "../interfaces/IDictionary";
 import IPlayer from "../interfaces/IPlayer";
+import { BaseAction } from "./BaseAction";
 
 interface PlaceCardParameters extends Dictionary {
   card: ICard;
   locationIndex: number;
 }
 
-export class PlaceCardAction implements IAction {
-  name: string;
-  owner: IPlayer;
-  parameters: Dictionary;
-
+export class PlaceCardAction extends BaseAction {
   constructor(player: IPlayer, parameters: PlaceCardParameters) {
-    this.owner = player;
-    this.parameters = parameters;
-    this.name = "Place Card";
+    super(player, parameters, "Place Card");
   }
 
   execute(board: IBoard): void {

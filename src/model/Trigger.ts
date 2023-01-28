@@ -1,29 +1,17 @@
 import IAction from "./interfaces/IAction";
-import IBaseCondition from "./interfaces/IBaseCondition";
-import IBoard from "./interfaces/IBoard";
 import { Dictionary } from "./interfaces/IDictionary";
-import ITrigger from "./interfaces/ITrigger";
+import { IEvent } from "./interfaces/IEvent";
 
 /**
  * Implementar triggers diferentes baseados nesta itnerface, esse aqui é só a baes eu acho
  */
-export class Trigger implements ITrigger {
-  baseCondition?: IBaseCondition;
+export class Trigger {
   action: IAction;
-  parameters: Dictionary;
-
-  constructor(
-    action: IAction,
-    parameters: Dictionary,
-    baseCondition?: IBaseCondition
-  ) {
-    this.baseCondition = baseCondition;
+  interestedEvent: IEvent;
+  once: boolean;
+  constructor(action: IAction, interestedEvent: IEvent, once = true) {
     this.action = action;
-    this.parameters = parameters;
-  }
-  check(board: IBoard): boolean {
-    if (!this.baseCondition) return true;
-
-    return this.baseCondition.checkCondition(board, this.parameters);
+    this.interestedEvent = interestedEvent;
+    this.once = once;
   }
 }

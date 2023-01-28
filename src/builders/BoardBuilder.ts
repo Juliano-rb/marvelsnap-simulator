@@ -18,6 +18,11 @@ export class BoardBuilder {
     this._board = new Board(players, locations);
   }
 
+  withLocations(locations: Location[]) {
+    this._board.locations = locations;
+    return this;
+  }
+
   withPlayers(players: IPlayer[]) {
     this._board.players = players;
     return this;

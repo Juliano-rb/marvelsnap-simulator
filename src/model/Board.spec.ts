@@ -1,18 +1,8 @@
-import {
-  assert,
-  beforeAll,
-  beforeEach,
-  test,
-  describe,
-  expect,
-  it,
-  vitest,
-} from "vitest";
+import { describe, expect, it, vitest } from "vitest";
 import { BoardBuilder } from "../builders/BoardBuilder";
 import { CardBuilder } from "../builders/CardBuilder";
 import { LocationBuilder } from "../builders/LocationBuilder";
 import { PlayerBuilder } from "../builders/PlayerBuilder";
-import { Board } from "./Board";
 
 describe("Board", () => {
   it("should instantiate board with passed players and locations", () => {
@@ -22,7 +12,11 @@ describe("Board", () => {
       new LocationBuilder().build(),
       new LocationBuilder().build(),
     ];
-    const board = new Board(players, locations);
+
+    const board = new BoardBuilder()
+      .withPlayers(players)
+      .withLocations(locations)
+      .build();
 
     expect(board.locations).toEqual(locations);
     expect(board.players).toEqual(players);
