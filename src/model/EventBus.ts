@@ -3,7 +3,7 @@ import IBoard from "./interfaces/IBoard";
 import { IEvent, IEventAllFields } from "./interfaces/IEvent";
 import { Trigger } from "./Trigger";
 
-export class EventDispatcher {
+export class EventBus {
   triggers: Trigger[];
   board: IBoard;
   events: IEvent[];

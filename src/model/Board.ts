@@ -1,5 +1,5 @@
 import { PlaceCardAction } from "./Action/PlaceCard";
-import { EventDispatcher } from "./EventDispatcher";
+import { EventBus } from "./EventBus";
 import IBoard from "./interfaces/IBoard";
 import ICard from "./interfaces/ICard";
 import IPlayer from "./interfaces/IPlayer";
@@ -8,12 +8,12 @@ export class Board implements IBoard {
   players: IPlayer[];
   turnOf: IPlayer;
   locations: Location[];
-  eventDispatcher: EventDispatcher;
+  eventBus: EventBus;
 
   constructor(players: IPlayer[], locations: Location[]) {
     this.players = players;
     this.locations = locations;
-    this.eventDispatcher = new EventDispatcher(this);
+    this.eventBus = new EventBus(this);
     this.turnOf = this.getInitialPlayer();
   }
 
@@ -30,6 +30,6 @@ export class Board implements IBoard {
       locationIndex,
     });
 
-    this.eventDispatcher.executeAction(placeCardAction);
+    this.eventBus.executeAction(placeCardAction);
   }
 }
