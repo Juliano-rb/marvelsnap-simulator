@@ -1,13 +1,13 @@
-import IBoard from "./IBoard";
+import { Board } from "../Board";
+import { Player } from "../Player";
 import { Dictionary } from "./IDictionary";
 import { IEvent } from "./IEvent";
-import IPlayer from "./IPlayer";
 
 export default interface IAction {
   name: string;
-  owner: IPlayer;
+  owner: Player;
   parameters: Dictionary;
 
-  execute(board: IBoard): void;
+  execute(board: Board): void;
   getEvent(): IEvent;
 }

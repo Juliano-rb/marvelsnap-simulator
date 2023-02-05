@@ -1,8 +1,7 @@
 import { Location } from "../model/Location";
-import ILocation from "../model/interfaces/ILocation";
 
 export class LocationBuilder {
-  private readonly _location: ILocation;
+  private readonly _location: Location;
   constructor() {
     const locationName = "Location " + Math.floor(Math.random() * 100);
 

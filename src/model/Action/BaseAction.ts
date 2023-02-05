@@ -1,21 +1,21 @@
+import { Board } from "../Board";
 import IAction from "../interfaces/IAction";
-import IBoard from "../interfaces/IBoard";
 import { Dictionary } from "../interfaces/IDictionary";
 import { IEvent } from "../interfaces/IEvent";
-import IPlayer from "../interfaces/IPlayer";
+import { Player } from "../Player";
 
 export class BaseAction implements IAction {
   name: string;
-  owner: IPlayer;
+  owner: Player;
   parameters: Dictionary;
 
-  constructor(player: IPlayer, parameters: Dictionary, actionName: string) {
+  constructor(player: Player, parameters: Dictionary, actionName: string) {
     this.owner = player;
     this.parameters = parameters;
     this.name = actionName;
   }
 
-  execute(board: IBoard): void {}
+  execute(board: Board): void {}
 
   getEvent() {
     return {

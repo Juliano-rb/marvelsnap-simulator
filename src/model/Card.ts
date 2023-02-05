@@ -1,19 +1,18 @@
-import IActionTrigger from "./interfaces/ITrigger";
-import ICard from "./interfaces/ICard";
+import { Trigger } from "./Trigger";
 
-export class Card implements ICard {
+export class Card {
   name: string;
   description: string;
   cost: number;
   power: number;
-  actionTriggers: IActionTrigger[];
+  actionTriggers: Trigger[];
 
   constructor(
     name: string,
     description: string,
     cost: number,
     power: number,
-    actionTriggers: IActionTrigger[]
+    actionTriggers: Trigger[]
   ) {
     this.name = name;
     this.description = description;

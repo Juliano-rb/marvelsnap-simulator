@@ -1,14 +1,14 @@
+import { Board } from "./Board";
 import IAction from "./interfaces/IAction";
-import IBoard from "./interfaces/IBoard";
 import { IEvent, IEventAllFields } from "./interfaces/IEvent";
 import { Trigger } from "./Trigger";
 
 export class EventBus {
   triggers: Trigger[];
-  board: IBoard;
+  board: Board;
   events: IEvent[];
 
-  constructor(board: IBoard) {
+  constructor(board: Board) {
     this.board = board;
     this.triggers = [];
     this.events = [];

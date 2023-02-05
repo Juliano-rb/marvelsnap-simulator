@@ -1,16 +1,16 @@
 import { PlaceCardAction } from "./Action/PlaceCard";
+import { Card } from "./Card";
 import { EventBus } from "./EventBus";
-import IBoard from "./interfaces/IBoard";
-import ICard from "./interfaces/ICard";
-import IPlayer from "./interfaces/IPlayer";
+import { Player } from "./Player";
+import { Location } from "./Location";
 
-export class Board implements IBoard {
-  players: IPlayer[];
-  turnOf: IPlayer;
+export class Board {
+  players: Player[];
+  turnOf: Player;
   locations: Location[];
   eventBus: EventBus;
 
-  constructor(players: IPlayer[], locations: Location[]) {
+  constructor(players: Player[], locations: Location[]) {
     this.players = players;
     this.locations = locations;
     this.eventBus = new EventBus(this);
@@ -23,7 +23,7 @@ export class Board implements IBoard {
     return this.players[randomPlayerIndex];
   }
 
-  playCard(card: ICard, player: IPlayer, location: Location): void {
+  playCard(card: Card, player: Player, location: Location): void {
     const locationIndex = this.locations.indexOf(location);
     const placeCardAction = new PlaceCardAction(player, {
       card,

@@ -1,5 +1,7 @@
+import { Card } from "../Card";
+
 export default interface IDeck {
-    cards: ICard[]
-    
-    draw (): ICard
+  cards: Card[];
+
+  draw(): Card;
 }

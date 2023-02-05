@@ -1,9 +1,9 @@
-import ICard from "./ICard";
+import { Card } from "../Card";
 
 export type IEventAllFields = {
   type: string;
   location: Location;
-  card: ICard;
+  card: Card;
   power: number;
 };
 

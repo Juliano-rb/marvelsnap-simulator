@@ -1,12 +1,11 @@
-import ICard from "./interfaces/ICard";
-import ILocation from "./interfaces/ILocation";
+import { Card } from "./Card";
 
-export class Location implements ILocation {
+export class Location {
   name: string;
   description: string;
   image: string;
   actions: object[];
-  cards: ICard[];
+  cards: Card[];
 
   constructor(
     name: string,

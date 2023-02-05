@@ -1,6 +1,6 @@
-import IBoard from "../model/interfaces/IBoard";
 import { BoardBuilder } from "./BoardBuilder";
 import { EventBus } from "../model/EventBus";
+import { Board } from "../model/Board";
 
 export class EventBusBuilder {
   private readonly _eventBus: EventBus;
@@ -10,7 +10,7 @@ export class EventBusBuilder {
     this._eventBus = new EventBus(board);
   }
 
-  withBoard(board: IBoard) {
+  withBoard(board: Board) {
     this._eventBus.board = board;
     return this;
   }

@@ -1,11 +1,11 @@
 import { Board } from "../model/Board";
-import IBoard from "../model/interfaces/IBoard";
 import { PlayerBuilder } from "./PlayerBuilder";
 import { LocationBuilder } from "./LocationBuilder";
-import IPlayer from "../model/interfaces/IPlayer";
+import { Player } from "../model/Player";
+import { Location } from "../model/Location";
 
 export class BoardBuilder {
-  private readonly _board: IBoard;
+  private readonly _board: Board;
   constructor() {
     const players = [new PlayerBuilder().build(), new PlayerBuilder().build()];
 
@@ -23,7 +23,7 @@ export class BoardBuilder {
     return this;
   }
 
-  withPlayers(players: IPlayer[]) {
+  withPlayers(players: Player[]) {
     this._board.players = players;
     return this;
   }
